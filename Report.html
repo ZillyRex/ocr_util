@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Report.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback";
+	font-size: 14px;
+	padding: 0 12px;
+	line-height: 22px;
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	color: #4080D0;
+	text-decoration: none;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+h1 code,
+h2 code,
+h3 code,
+h4 code,
+h5 code,
+h6 code {
+	font-size: inherit;
+	line-height: auto;
+}
+
+a:hover {
+	color: #4080D0;
+	text-decoration: underline;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left: 5px solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 14px;
+	line-height: 19px;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+.mac code {
+	font-size: 12px;
+	line-height: 18px;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+/** Theming */
+
+.vscode-light,
+.vscode-light pre code {
+	color: rgb(30, 30, 30);
+}
+
+.vscode-dark,
+.vscode-dark pre code {
+	color: #DDD;
+}
+
+.vscode-high-contrast,
+.vscode-high-contrast pre code {
+	color: white;
+}
+
+.vscode-light code {
+	color: #A31515;
+}
+
+.vscode-dark code {
+	color: #D7BA7D;
+}
+
+.vscode-light pre:not(.hljs),
+.vscode-light code > div {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre:not(.hljs),
+.vscode-dark code > div {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre:not(.hljs),
+.vscode-high-contrast code > div {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+.vscode-light blockquote,
+.vscode-dark blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.vscode-high-contrast blockquote {
+	background: transparent;
+	border-color: #fff;
+}
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family:  "Meiryo", "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback";
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+</head>
+<body>
+<h1 id="ml-skill-test">ML Skill Test</h1>
+<p><strong>NOTE! Please rename the file <em>pre_install.bat.null</em> to <em>pre_install.bat</em> before you start.</strong></p>
+<h2 id="how-to-use">How to use</h2>
+<p>Some packages need to be installed before using these functions or scripts. These packages can be installed as follows:</p>
+<ul>
+<li>
+<p>If you use Windows, run pre_install.bat directly.</p>
+</li>
+<li>
+<p>If you use Linux, run <em>bash pre_install.sh</em> in the terminal.</p>
+</li>
+</ul>
+<p>The <em>create_digit_sequence</em> function is implemented in the <em>ocr_util.py</em>. It can be easily used as follow:</p>
+<pre><code># import the function from the model ocr_util
+from ocr_util import create_digit_sequence
+
+# define the params you would use
+number = '123456'
+width = 100
+min_spacing = 2
+max_spacing = 10
+
+# the seq_img is a NumPy array representing the image with the params.
+seq_img = create_digit_sequence(number, width, min_spacing, max_spacing)
+</code></pre>
+<ul>
+<li>NOTE the parameters must be legal. If the width of the image is smaller than the minimum width needed, the <em>assert</em> in the source code will call an error. Obviously, you should ensure that the image width is bigger than or equal to <em>(n-1)*min_spacing+n</em>, while <em>n</em> is the digits length of the number, otherwise there will be no space to display the number (even if the number is only 1 pixel). The min_spacing should be smaller than or equal to the max_spacing.</li>
+</ul>
+<p>The command line utility (Python script) is implemented in the <em>gen_ocr_imgs.py</em>. By running the command:</p>
+<pre><code>python gen_ocr_imgs.py -h
+</code></pre>
+<p>you could see the help information:</p>
+<pre><code>usage: gen_ocr_imgs.py [-h] --path PATH --num NUM --digits DIGITS --width
+                   WIDTH [--min_spacing MIN_SPACING]
+                   [--max_spacing MAX_SPACING] [--form FORM]
+
+optional arguments:
+-h, --help            show this help message and exit
+--path PATH           The path you would save the image(s). (required)
+--num NUM             The amount of images you would create. (default: 1)
+--digits DIGITS       The number of the digits of every number you would
+                        create. (required)
+--width WIDTH         The image width (in pixel). (required)
+--min_spacing MIN_SPACING
+                        The minimum spacing between digits (in pixel).
+                        (default: 0)
+--max_spacing MAX_SPACING
+                        The maximum spacing between digits (in pixel).
+                        (default: 28)
+--form FORM           The image format. (default: jpg)
+</code></pre>
+<p>The parameters are:</p>
+<p>--path:</p>
+<ul>
+<li>Required. Considering that you may use this script to create a large number of images, if this parameter is not set to required and the default path would be set (such as the same level directory of script files), then it might generate a large number of image files in the path you do not want, which will have a negative impact on the cleanliness of the project directory, so this parameter is required.</li>
+<li>It specifies which directory you want to create images in.</li>
+<li>If the directory specified by the path does not exist, the script will create a new directory by the path.</li>
+</ul>
+<p>--num:</p>
+<ul>
+<li>It specifies how many pictures you want to create. The default value is 1.</li>
+</ul>
+<p>--digits:</p>
+<ul>
+<li>Required. At the beginning, I did not intend to design this parameter as required. When you don't specify it, the script will create random-digit images, but this will cause many problems. First, to determine the range of random-digit, you need to input two additional parameters representing the range (or use default values). At the same time, you need to determine the width of the picture. Then you will have to consider whether the relationship between these random lengths, width, min_spacing and max_spacing is legal or not. If not carefully considered, the illegal values in the process of creation will lead to errors. To avoid these unnecessary troubles, I set this parameter to required. This means that you can only create a batch of number images of the same digit length at a time, while the advantage is that if you set legal parameters at the beginning, you won't have to worry about making mistakes in the creation process. If you need to create a random-length image, you can call the script with random and legal parameters in an external program, and the legitimacy of those parameters can be easily controlled by the programmer himself.</li>
+<li>It specifies the number of digits in the image you create.</li>
+</ul>
+<p>--width</p>
+<ul>
+<li>Required</li>
+<li>The image width (in pixel).</li>
+</ul>
+<p>--min_spacing</p>
+<ul>
+<li>The minimum spacing between digits (in pixel). (default: 0)</li>
+</ul>
+<p>--max_spacing</p>
+<ul>
+<li>The maximum spacing between digits (in pixel). (default: 28)</li>
+</ul>
+<p>--form</p>
+<ul>
+<li>The image format. (default: jpg)</li>
+</ul>
+<h2 id="detail-of-implementation">Detail of Implementation</h2>
+<p>The <em>create_digit_sequence</em> function is implemented in the <em>ocr_util.py</em>. A class named <em>DigitGenerator</em> is also contained. The function <em>DigitGenerator.gen_digit(digit: str)</em> is used to create an image representing the given digit which is randomly sampled from the MNIST dataset. The white areas on left and right sides in the original MNIST image are cropped. It returns an NumPy array representing the image.</p>
+<p>In the <em>create_digit_sequence</em>, I firstly get all the digit images I need by using the <em>DigitGenerator</em>, then depending on the relation between image width, min_spacing, max_spacing, the length of the number and the total width of all the digit images, create the final image. Note that in the first <em>if</em> block, the digit images have to be compressed to make the final width and spacing size correct.</p>
+<p>The command line utility (Python script) is implemented in the <em>gen_ocr_imgs.py</em>. Firstly, the argparse is used to parse all the command line parameters, then the <em>os.path.isdir()</em> and <em>os.mkdir</em> will be used to create a new folder if it doesn't exist. Finally, the random numbers are generated and the images will be obtained by  the function above. The opencv is used to write the images to the path you give.</p>
+<p>In the folder named &quot;ocr_imgs&quot;, there are five samples created by this tool.</p>
+
+</body>
+</html>
