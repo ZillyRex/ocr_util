@@ -92,5 +92,3 @@ The *create_digit_sequence* function is implemented in the *ocr_util.py*. A clas
 In the *create_digit_sequence*, I firstly get all the digit images I need by using the *DigitGenerator*, then depending on the relation between image width, min_spacing, max_spacing, the length of the number and the total width of all the digit images, create the final image. Note that in the first *if* block, the digit images have to be compressed to make the final width and spacing size correct.
 
 The command line utility (Python script) is implemented in the *gen_ocr_imgs.py*. Firstly, the argparse is used to parse all the command line parameters, then the *os.path.isdir()* and *os.mkdir* will be used to create a new folder if it doesn't exist. Finally, the random numbers are generated and the images will be obtained by  the function above. The opencv is used to write the images to the path you give.
-
-In the folder named "ocr_imgs", there are five samples created by this tool.
