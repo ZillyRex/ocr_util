@@ -2,8 +2,6 @@
 
 An OCR util. Create the number images for the OCR model training.
 
-**NOTE! Please rename the file *pre_install.bat.null* to *pre_install.bat* before you start.**
-
 ## How to use
 
 Some packages need to be installed before using these functions or scripts. These packages can be installed as follows:
